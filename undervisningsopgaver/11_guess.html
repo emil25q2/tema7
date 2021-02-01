@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Get tallet!</p>
+    <input type="text" id="guess">
+
+    <button>Klik her</button>
+
+    <script>
+        let random = Math.round(Math.random() * 20);
+        let clicks = 0;
+
+        document.querySelector("button").addEventListener("click", buttonClick);
+
+        function buttonClick() {
+            let guess = document.querySelector("#guess").value;
+
+            clicks++;
+
+            if (guess == random) {
+                console.log(`Du gættede rigtigt! Tallet var ${random}. Du brugte ${clicks} gæt på at finde det rigtige tal. Vil du prøve igen?`);
+            } else if (guess > random) {
+                console.log(`Du gættede forkert! Tallet er mindre end ${guess}`);
+            } else {
+                console.log(`Du gættede forkert! Tallet er højere end ${guess}`)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

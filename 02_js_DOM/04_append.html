@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Øvelse 2B</title>
+    <title>Øvelse 4</title>
 
     <style>
         * {
@@ -82,15 +82,41 @@
         const article1Heading2 = document.querySelector("article:nth-child(2) h3");
         const article1Content2 = document.querySelector("article:nth-child(2) p");
 
+        const articleSection = document.querySelector("section");
+
         console.log(article1, article1Heading, img1, article1Content);
 
         title.textContent = "Natur";
 
-        article1Heading.innerHTML = "<h3>Vandfald</h3>";
-        article1Content.textContent = "Dette er et super fantalastisk billede af et vandfald i naturen...uuuuuhh";
+        article1Heading.innerHTML = "<h3>Bjergside</h3>";
+        article1Content.textContent = "Meget flot grøn.";
 
-        article1Heading2.innerHTML = "<h3>Sol</h3>";
-        article1Content2.textContent = "Ææææft det er en flot sol";
+        article1Heading2.innerHTML = "<h3>Sten</h3>";
+        article1Content2.textContent = "Ææææft det er nogle flotte sten";
+
+        //udskift billeder
+        img1.src = "images/mountain.jpg";
+        img2.src = "images/sten_du.jpg";
+
+        img1.alt = "billede af bjergside";
+        img2.alt = "billede af sten";
+
+
+        //indsæt nyt article-element
+        let newArticle = document.createElement("article");
+        let newH3 = document.createElement("h3");
+        let newHeadlineText = document.createTextNode("Strand");
+        newH3.appendChild(newHeadlineText);
+
+        let newPic = document.createElement("img");
+        newPic.src = "images/vand.jpg";
+
+        let newContent = document.createElement("p");
+        newContent.textContent = "Solnedgang på strand.";
+        newArticle.appendChild(newPic);
+        newArticle.appendChild(newH3);
+        newArticle.appendChild(newContent);
+        articleSection.appendChild(newArticle);
 
     </script>
 </body>

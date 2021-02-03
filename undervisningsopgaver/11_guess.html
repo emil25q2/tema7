@@ -9,13 +9,13 @@
 </head>
 
 <body>
-    <p>Get tallet!</p>
+    <p>Get tallet mellem 0 og 20!</p>
     <input type="text" id="guess">
 
-    <button>Klik her</button>
+    <button>Gæt</button>
 
     <script>
-        let random = Math.round(Math.random() * 20);
+        const random = Math.round(Math.random() * 20);
         let clicks = 0;
 
         document.querySelector("button").addEventListener("click", buttonClick);

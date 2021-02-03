@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Øvelse 1</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            width: 80vw;
+            margin: 0 auto;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 20px;
+        }
+
+        article {
+            border: 1px solid #333;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        footer {
+            text-align: center;
+        }
+
+        header,
+        footer {
+            padding: 10px 0;
+            border: 1px solid #888;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Titel</h1>
+    </header>
+
+    <main>
+        <h2>Undertitel</h2>
+        <section>
+            <article class="auto-grid" style="border: 1px solid;">
+                <img src="images/vandfald.jpg" alt="">
+                <h3 style="text-transform: capitalize; margin: 0;">article 1</h3>
+                <p style="margin: 0;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem temporibus excepturi, ipsa ex ipsum sunt, ducimus vero ullam non eius vitae asperiores ea fugit officiis reprehenderit deserunt voluptates incidunt laborum voluptas voluptate at, inventore accusantium doloribus! Quaerat nam, reiciendis repellendus laboriosam earum dolor? Impedit aut debitis veniam, laboriosam quaerat alias.</p>
+            </article>
+
+            <article>
+                <img src="images/sun.jpg" alt="">
+                <h3>Article 2</h3>
+                <p style="margin: 0;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem temporibus excepturi, ipsa ex ipsum sunt, ducimus vero ullam non eius vitae asperiores ea fugit officiis reprehenderit deserunt voluptates incidunt laborum voluptas voluptate at, inventore accusantium doloribus! Quaerat nam, reiciendis repellendus laboriosam earum dolor? Impedit aut debitis veniam, laboriosam quaerat alias.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>This is the footer</p>
+    </footer>
+</body>
+
+</html>

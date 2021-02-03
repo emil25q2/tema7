@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Øvelse 1</title>
+    <title>Øvelse 2A</title>
 
     <style>
         * {
@@ -53,7 +53,7 @@
         <h2>Undertitel</h2>
         <section>
             <article>
-                <img src="images/vandfald.jpg" alt="">
+                <img src="images/vandfald.jpg" alt="" class="first">
                 <h3>Article 1</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem temporibus excepturi, ipsa ex ipsum sunt, ducimus vero ullam non eius vitae asperiores ea fugit officiis reprehenderit deserunt voluptates incidunt laborum voluptas voluptate at, inventore accusantium doloribus! Quaerat nam, reiciendis repellendus laboriosam earum dolor? Impedit aut debitis veniam, laboriosam quaerat alias.</p>
             </article>
@@ -69,6 +69,17 @@
     <footer>
         <p>This is the footer</p>
     </footer>
+
+    <script>
+        const title = document.querySelector("header h1");
+        const article1 = document.querySelector("article:nth-child(1)");
+        const img1 = document.querySelector("article:nth-child(1) img");
+        const article1Heading = document.querySelector("article:nth-child(1) h3");
+        const article1Content = document.querySelector("article:nth-child(1) p");
+
+        console.log(article1, article1Heading, img1, article1Content);
+
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Øvelse 2A</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            width: 80vw;
+            margin: 0 auto;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 20px;
+        }
+
+        article {
+            border: 1px solid #333;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        footer {
+            text-align: center;
+        }
+
+        header,
+        footer {
+            padding: 10px 0;
+            border: 1px solid #888;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Titel</h1>
+    </header>
+
+    <main>
+        <h2>Undertitel</h2>
+        <section>
+            <article>
+                <img src="images/vandfald.jpg" alt="" class="first">
+                <h3>Article 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem temporibus excepturi, ipsa ex ipsum sunt, ducimus vero ullam non eius vitae asperiores ea fugit officiis reprehenderit deserunt voluptates incidunt laborum voluptas voluptate at, inventore accusantium doloribus! Quaerat nam, reiciendis repellendus laboriosam earum dolor? Impedit aut debitis veniam, laboriosam quaerat alias.</p>
+            </article>
+
+            <article>
+                <img src="images/sun.jpg" alt="">
+                <h3>Article 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem temporibus excepturi, ipsa ex ipsum sunt, ducimus vero ullam non eius vitae asperiores ea fugit officiis reprehenderit deserunt voluptates incidunt laborum voluptas voluptate at, inventore accusantium doloribus! Quaerat nam, reiciendis repellendus laboriosam earum dolor? Impedit aut debitis veniam, laboriosam quaerat alias.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>This is the footer</p>
+    </footer>
+
+    <script>
+        const title = document.querySelector("header h1");
+        const article1 = document.querySelector("article:nth-child(1)");
+        const img1 = document.querySelector("article:nth-child(1) img");
+        const article1Heading = document.querySelector("article:nth-child(1) h3");
+        const article1Content = document.querySelector("article:nth-child(1) p");
+
+        const article2 = document.querySelector("article:nth-child(2)");
+        const img2 = document.querySelector("article:nth-child(2) img");
+        const article1Heading2 = document.querySelector("article:nth-child(2) h3");
+        const article1Content2 = document.querySelector("article:nth-child(2) p");
+
+        console.log(article1, article1Heading, img1, article1Content);
+
+        title.textContent = "Natur";
+
+        article1Heading.innerHTML = "<h3>Bjergside</h3>";
+        article1Content.textContent = "Meget flot grøn.";
+
+        article1Heading2.innerHTML = "<h3>Sten</h3>";
+        article1Content2.textContent = "Ææææft det er nogle flotte sten";
+
+        //udskift billeder
+        img1.src = "images/mountain.jpg";
+        img2.src = "images/sten_du.jpg";
+
+        img1.alt = "billede af bjergside";
+        img2.alt = "billede af sten";
+
+    </script>
+</body>
+
+</html>

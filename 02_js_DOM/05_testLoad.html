@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Øvelse 4</title>
+    <title>Øvelse 5</title>
 
     <style>
         * {
@@ -78,25 +78,29 @@
         const article1Heading = document.querySelector("article:nth-child(1) h3");
         const article1Content = document.querySelector("article:nth-child(1) p");
 
-        title.textContent = "Natur";
-        article1Heading.textContent = "Bjerside";
-        article1Content.textContent = "Super flot grøn farve egentlig.";
-        img1.src = "images/mountain.jpg";
-        img1.alt = "Billede af grøn bjergside";
+        document.addEventListener("DOMContentLoaded", start);
 
-        //indsæt nyt article-element
-        let newArticle = document.createElement("article");
-        let newH3 = document.createElement("h3");
-        let newHeadlineText = document.createTextNode("Strand");
-        newH3.appendChild(newHeadlineText);
-        let newPic = document.createElement("img");
-        newPic.src = "images/vand.jpg";
-        let newContent = document.createElement("p");
-        newContent.textContent = "Solnedgang på strand.";
-        newArticle.appendChild(newPic);
-        newArticle.appendChild(newH3);
-        newArticle.appendChild(newContent);
-        articleSection.appendChild(newArticle);
+        function start() {
+            title.textContent = "Natur";
+            article1Heading.textContent = "Bjerside";
+            article1Content.textContent = "Super flot grøn farve egentlig.";
+            img1.src = "images/mountain.jpg";
+            img1.alt = "Billede af grøn bjergside";
+
+            //indsæt nyt article-element
+            let newArticle = document.createElement("article");
+            let newH3 = document.createElement("h3");
+            let newHeadlineText = document.createTextNode("Strand");
+            newH3.appendChild(newHeadlineText);
+            let newPic = document.createElement("img");
+            newPic.src = "images/vand.jpg";
+            let newContent = document.createElement("p");
+            newContent.textContent = "Solnedgang på strand.";
+            newArticle.appendChild(newPic);
+            newArticle.appendChild(newH3);
+            newArticle.appendChild(newContent);
+            articleSection.appendChild(newArticle);
+        }
 
     </script>
 </body>

@@ -60,13 +60,13 @@
     <main>
         <h2>Undertitel</h2>
         <section>
-            <article class="the_shadow">
+            <article>
                 <img src="images/vandfald.jpg" alt="" class="first">
                 <h3>Article 1</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem temporibus excepturi, ipsa ex ipsum sunt, ducimus vero ullam non eius vitae asperiores ea fugit officiis reprehenderit deserunt voluptates incidunt laborum voluptas voluptate at, inventore accusantium doloribus! Quaerat nam, reiciendis repellendus laboriosam earum dolor? Impedit aut debitis veniam, laboriosam quaerat alias.</p>
             </article>
 
-            <article class="the_shadow">
+            <article>
                 <img src="images/sun.jpg" alt="">
                 <h3>Article 2</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem temporibus excepturi, ipsa ex ipsum sunt, ducimus vero ullam non eius vitae asperiores ea fugit officiis reprehenderit deserunt voluptates incidunt laborum voluptas voluptate at, inventore accusantium doloribus! Quaerat nam, reiciendis repellendus laboriosam earum dolor? Impedit aut debitis veniam, laboriosam quaerat alias.</p>
@@ -79,64 +79,47 @@
     </footer>
 
     <script>
+        const articleSection = document.querySelector("section");
         const title = document.querySelector("header h1");
         const article1 = document.querySelector("article:nth-child(1)");
         const img1 = document.querySelector("article:nth-child(1) img");
         const article1Heading = document.querySelector("article:nth-child(1) h3");
         const article1Content = document.querySelector("article:nth-child(1) p");
 
-        const article2 = document.querySelector("article:nth-child(2)");
-        const img2 = document.querySelector("article:nth-child(2) img");
-        const article1Heading2 = document.querySelector("article:nth-child(2) h3");
-        const article1Content2 = document.querySelector("article:nth-child(2) p");
+        document.addEventListener("DOMContentLoaded", start);
 
-        const articleSection = document.querySelector("section");
+        function start() {
+            title.textContent = "Natur";
+            article1Heading.textContent = "Bjerside";
+            article1Content.textContent = "Super flot grøn farve egentlig.";
+            img1.src = "images/mountain.jpg";
+            img1.alt = "Billede af grøn bjergside";
 
-        console.log(article1, article1Heading, img1, article1Content);
+            //indsæt nyt article-element
+            let newArticle = document.createElement("article");
+            let newH3 = document.createElement("h3");
+            let newHeadlineText = document.createTextNode("Strand");
+            newH3.appendChild(newHeadlineText);
+            let newPic = document.createElement("img");
+            newPic.src = "images/vand.jpg";
+            let newContent = document.createElement("p");
+            newContent.textContent = "Solnedgang på strand.";
+            newArticle.appendChild(newPic);
+            newArticle.appendChild(newH3);
+            newArticle.appendChild(newContent);
+            articleSection.appendChild(newArticle);
 
-        title.textContent = "Natur";
+            img1.addEventListener("click", skiftBillede);
 
-        article1Heading.innerHTML = "<h3>Bjergside</h3>";
-        article1Content.textContent = "Meget flot grøn.";
+            document.querySelector("article:nth-child(1)").addEventListener("mouseover", elementOverAndOut);
+            document.querySelector("article:nth-child(1)").addEventListener("mouseout", elementOverAndOut);
 
-        article1Heading2.innerHTML = "<h3>Sten</h3>";
-        article1Content2.textContent = "Ææææft det er nogle flotte sten";
+            document.querySelector("article:nth-child(2)").addEventListener("mouseover", elementOverAndOut);
+            document.querySelector("article:nth-child(2)").addEventListener("mouseout", elementOverAndOut);
 
-        //udskift billeder
-        img1.src = "images/mountain.jpg";
-        img2.src = "images/sten_du.jpg";
-
-        img1.alt = "billede af bjergside";
-        img2.alt = "billede af sten";
-
-
-        //indsæt nyt article-element
-        let newArticle = document.createElement("article");
-        newArticle.classList.add("the_shadow");
-        let newH3 = document.createElement("h3");
-        let newHeadlineText = document.createTextNode("Strand");
-        newH3.appendChild(newHeadlineText);
-
-        let newPic = document.createElement("img");
-        newPic.src = "images/vand.jpg";
-
-        let newContent = document.createElement("p");
-        newContent.textContent = "Solnedgang på strand.";
-        newArticle.appendChild(newPic);
-        newArticle.appendChild(newH3);
-        newArticle.appendChild(newContent);
-        articleSection.appendChild(newArticle);
-
-        img1.addEventListener("click", skiftBillede);
-
-        document.querySelector("article:nth-child(1)").addEventListener("mouseover", elementOverAndOut);
-        document.querySelector("article:nth-child(1)").addEventListener("mouseout", elementOverAndOut);
-
-        document.querySelector("article:nth-child(2)").addEventListener("mouseover", elementOverAndOut);
-        document.querySelector("article:nth-child(2)").addEventListener("mouseout", elementOverAndOut);
-
-        document.querySelector("article:nth-child(3)").addEventListener("mouseover", elementOverAndOut);
-        document.querySelector("article:nth-child(3)").addEventListener("mouseout", elementOverAndOut);
+            document.querySelector("article:nth-child(3)").addEventListener("mouseover", elementOverAndOut);
+            document.querySelector("article:nth-child(3)").addEventListener("mouseout", elementOverAndOut);
+        }
 
         function elementOverAndOut() {
             console.log("OVER AND OUT");
@@ -144,7 +127,7 @@
         }
 
         function skiftBillede() {
-            //console.log(this);
+            // console.log(this);
             let tal = Math.round(Math.random() * 10);
             img1.src = "https://placeimg.com/400/300/arch?t=" + tal;
         }

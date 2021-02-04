@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01 JSON</title>
+
+    <style>
+        section {
+            display: grid;
+            gap: 10px;
+        }
+
+        article {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+    <article id="dyr">
+        <p></p>
+        <img src="" alt="">
+    </article>
+-->
+    <section id="liste"></section>
+
+    <template>
+        <article id="dyr">
+            <h3></h3>
+            <img src="" alt="">
+            <p id="type">Type: </p>
+            <p id="levested">Levested</p>
+        </article>
+    </template>
+
+    <script>
+        let container = document.querySelector("section");
+        let temp = document.querySelector("template");
+
+        const fil = "Dyr.json";
+
+        async function hentdata(fil) {
+            const resultat = await fetch(fil);
+            const json = await resultat.json();
+            vis(json);
+        }
+
+
+        function vis(json) {
+            json.forEach(etDyr => {
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector("h3").textContent = etDyr.fornavn;
+                klon.querySelector("img").src = etDyr.billede;
+                klon.querySelector("#type").textContent = etDyr.type;
+                klon.querySelector("#levested").textContent = etDyr.levested;
+                container.appendChild(klon);
+            })
+
+        }
+
+        hentdata(fil);
+
+
+
+
+
+
+        //        document.addEventListener("DOMContentLoaded", visDyr);
+        //
+        // let dyr = [{
+        // "fornavn": "frø",
+        // "type": "amfibie",
+        // "billede": "http://mabe-kea.dk/E19/pics/frog.png",
+        // "levested": "vandhullet"
+        // },
+        //
+        // {
+        // "fornavn": "gris",
+        // "type": "pattedyr",
+        // "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+        // "levested": "svinefarme"
+        // },
+        //
+        // {
+        // "fornavn": "ræv",
+        // "type": "pattedyr",
+        // "billede": "http://mabe-kea.dk/E19/pics/fox.png",
+        // "levested": "skoven"
+        // },
+        //
+        // {
+        // "fornavn": "sild",
+        // "type": "fisk",
+        // "billede": "http://mabe-kea.dk/E19/pics/sild.jpg",
+        // "levested": "havet"
+        // },
+        //
+        // {
+        // "fornavn": "krokodille",
+        // "type": "krybdyr",
+        // "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg",
+        // "levested": "floden"
+        // }
+        // ]
+        //
+        // console.log(dyr);
+        //
+        // function visDyr() {
+        // // const listevisning = document.querySelector("#liste");
+        // // dyr.forEach(dyr => {
+        // // listevisning.innerHTML += `<p>${dyr.fornavn}, ${dyr.type} fra ${dyr.levested}</p>`
+        // // })
+        //
+        // const container = document.querySelector("#liste");
+        // const dyrTemplate = document.querySelector("template");
+        // dyr.forEach(dyr => {
+        // let klon = dyrTemplate.cloneNode(true).content;
+        // klon.querySelector("h3").textContent = dyr.fornavn;
+        // klon.querySelector("img").src = dyr.billede;
+        // klon.querySelector("#type").textContent = dyr.type;
+        // klon.querySelector("#levested").textContent = dyr.levested;
+        // container.appendChild(klon);
+        // })
+        // }
+
+        //            const dyr = {
+        // "navn": "gris",
+        // "type": "pattedyr",
+        // "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+        // "levested": "svinefarm"
+        // }
+        //
+        // console.log(`Dyr: ${dyr.navn}, Type:${dyr.type}, Levested: ${dyr.levested}`);
+        //
+        // const destination = document.querySelector("#dyr");
+        // const tekst = `Dyr: ${dyr.navn}, Type: ${dyr.type}, Levested: ${dyr.levested}`;
+        // destination.querySelector("p").textContent = tekst;
+        // destination.querySelector("img").src = dyr.billede;
+    </script>
+</body></html>

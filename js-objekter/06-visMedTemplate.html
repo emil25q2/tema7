@@ -3,17 +3,40 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Øvelse 4</title>
+    <title>Øvelse 6</title>
+
+    <style>
+        section {
+            display: grid;
+            gap: 10px;
+        }
+
+        article {
+            border: 1px solid;
+        }
+    </style>
 </head>
 
 <body>
+    <!--
     <article id="dyr">
         <p></p>
         <img src="" alt="">
     </article>
+-->
+    <section id="liste"></section>
+
+    <template>
+        <article id="dyr">
+            <h3></h3>
+            <img src="" alt="">
+            <p id="type">Type: </p>
+            <p id="levested">Levested</p>
+        </article>
+    </template>
 
     <script>
-        //        document.addEventListener("DOMContentLoaded", start);
+        document.addEventListener("DOMContentLoaded", visDyr);
 
         let dyr = [{
                 "fornavn": "frø",
@@ -53,8 +76,25 @@
 
         console.log(dyr);
 
-        //        function start() {
-        // const dyr = {
+        function visDyr() {
+            //            const listevisning = document.querySelector("#liste");
+            //             dyr.forEach(dyr => {
+            //             listevisning.innerHTML += `<p>${dyr.fornavn}, ${dyr.type} fra ${dyr.levested}</p>`
+            //             })
+
+            const container = document.querySelector("#liste");
+            const dyrTemplate = document.querySelector("template");
+            dyr.forEach(dyr => {
+                let klon = dyrTemplate.cloneNode(true).content;
+                klon.querySelector("h3").textContent = dyr.fornavn;
+                klon.querySelector("img").src = dyr.billede;
+                klon.querySelector("#type").textContent = `Type: ${dyr.type}`;
+                klon.querySelector("#levested").textContent = `Levested: ${dyr.levested}`;
+                container.appendChild(klon);
+            })
+        }
+
+        //            const dyr = {
         // "navn": "gris",
         // "type": "pattedyr",
         // "billede": "http://mabe-kea.dk/E19/pics/pig.png",
@@ -67,9 +107,5 @@
         // const tekst = `Dyr: ${dyr.navn}, Type: ${dyr.type}, Levested: ${dyr.levested}`;
         // destination.querySelector("p").textContent = tekst;
         // destination.querySelector("img").src = dyr.billede;
-        // }
-
     </script>
-</body>
-
-</html>
+</body></html>
